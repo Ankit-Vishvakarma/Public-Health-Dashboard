@@ -61,6 +61,10 @@ export const appOptions = [
     displaySubLabel: "Only one file can be uploaded for one document.",
     iconName: "account_balance",
     iconColorOne:"#66bb6a",
-    iconColorTwo:"#43a047"
+    iconColorTwo:"#43a047",
+    onClickDefination:{
+      action:"page_change",
+      path:"/landing/mihy-ui-framework/blood/about-application"
+    }
   }
 ];
