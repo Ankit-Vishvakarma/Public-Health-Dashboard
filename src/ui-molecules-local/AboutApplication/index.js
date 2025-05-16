@@ -83,7 +83,7 @@ class AboutApplication extends Component {
           color="primary"
           startIcon={<ArrowBackIcon />}
           className={classes.backButton}
-          href="/landing/dashboard"
+          href="/landing/mihy-ui-framework/blood/dashboard"
         >
           Back to Dashboard
         </Button>
@@ -135,10 +135,11 @@ class AboutApplication extends Component {
             {this.renderPanel(
               'Developer Info',
               <PersonIcon className={classes.sectionIcon} />, [
-                { label: 'Developer:', text: '[Your Name]' },
+                { label: 'Developer:', text: 'Ankit Vishwakarma' },
                 { label: 'Role:', text: 'Frontend Developer' },
-                { label: 'Project Type:', text: 'e.g., Sujog – Odisha Govt., Academic Project' },
-                { label: 'Duration:', text: '[Start Date] – [End Date]' },
+                { label: 'Company:', text: 'Pwc India' },
+                { label: 'Project Type:', text: 'e.g., E-Governance, Academic Project' },
+                { label: 'Project Duration:', text: 'May,2025 – Present' },
               ])}
           </Grid>
         </Grid>
