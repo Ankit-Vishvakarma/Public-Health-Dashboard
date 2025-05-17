@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 export const bloodGroups = ['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-'];
 export const indianStates = [
   'Andhra Pradesh',

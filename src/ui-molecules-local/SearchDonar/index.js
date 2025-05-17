@@ -11,7 +11,7 @@ import {
   withStyles
 } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import { bloodGroups, indianStates, mockDonors } from "./data.js";
+import { bloodGroups, indianStates, mockDonors } from "../../ui-config/screens/specs/blood/data/data.js";
 import { RequestDonarDialogBox } from "../index.js"
 
 const styles = theme => ({
@@ -147,7 +147,7 @@ class BloodDonorSearch extends Component {
           onMessageChange={this.handleMessageChange}
         />)}
         <Typography variant="display1" gutterBottom className={classes.centerText}>
-          🔍 Search Blood Donors
+            Search Blood Donors
         </Typography>
 
         <Grid container spacing={16} className={classes.searchContainer}>
