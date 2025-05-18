@@ -52,7 +52,7 @@ class DonorRequestDialog extends Component {
             </Grid>
           )}
           <TextField
-            label="Custom Message (Hospital, Patients Details etc.) "
+            label="Custom Message (Hospital Name and Address, Patients Details, Contact Person Details etc.) "
             multiline
             rows={4}
             fullWidth

@@ -160,3 +160,4 @@ export const mockDonors = [
   {'name': 'Arjun Sharma', 'imageUrl': '', 'bloodGroup': 'AB+', 'stateName': 'Delhi', 'location': 'Navi Mumbai', 'contact': '7698960308'},
   {'name': 'Rahul Sharma', 'imageUrl': '', 'bloodGroup': 'B+', 'stateName': 'Gujarat', 'location': 'Anna Nagar', 'contact': '7935586235'},
 ];
+export const genders = ['Male', 'Female', 'Other'];

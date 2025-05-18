@@ -17,6 +17,10 @@ const RequestDonarDialogBox = Loadable({
   loader: () => import("./RequestDonarDialogBox"),
   loading: () => <Loading />
 });
+const RegistrationDonar= Loadable({
+  loader: () => import("./RegistrationDonar"),
+  loading: () => <Loading />
+});
 const TestMolecules = Loadable({
   loader: () => import("./TestMolecules"),
   loading: () => <Loading />
@@ -26,5 +30,6 @@ export {
   TestMolecules,
   AboutApplication,
   RequestDonarDialogBox,
+  RegistrationDonar,
   SearchDonar
 }

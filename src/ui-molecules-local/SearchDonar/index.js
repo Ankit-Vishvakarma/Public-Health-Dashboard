@@ -10,7 +10,7 @@ import {
   Avatar,
   withStyles
 } from '@material-ui/core';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import Icon from '@material-ui/core/Icon';
 import { bloodGroups, indianStates, mockDonors } from "../../ui-config/screens/specs/blood/data/data.js";
 import { RequestDonarDialogBox } from "../index.js"
 
@@ -132,11 +132,10 @@ class BloodDonorSearch extends Component {
         <Button
           variant="contained"
           color="primary"
-          startIcon={<ArrowBackIcon />}
           className={classes.backButton}
           href="/landing/mihy-ui-framework/blood/dashboard"
         >
-          Back to Dashboard
+          <Icon>arrow_back</Icon> Back to Dashboard
         </Button>
         {this.state.openDialog && (<RequestDonarDialogBox
           open={this.state.openDialog}
