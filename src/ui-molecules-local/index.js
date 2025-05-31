@@ -13,6 +13,11 @@ const ThingsToKnow = Loadable({
   loading: () => <Loading />
 });
 
+const DiseaseUpdate = Loadable({
+  loader: () => import("./DiseaseUpdate"),
+  loading: () => <Loading />
+});
+
 const BloodDonationProcess = Loadable({
   loader: () => import("./BloodDonationProcess"),
   loading: () => <Loading />
@@ -48,5 +53,6 @@ export {
   SearchDonar,
   BloodDonationProcess,
   Calculate,
-  ThingsToKnow
+  ThingsToKnow,
+  DiseaseUpdate
 }
