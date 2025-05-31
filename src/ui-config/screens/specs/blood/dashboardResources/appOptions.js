@@ -42,7 +42,11 @@ export const appOptions = [
     displaySubLabel: "Only one file can be uploaded for one document.",
     iconName: "dialpad",
     iconColorOne:"#ab47bc",
-    iconColorTwo:"#8e24aa"
+    iconColorTwo:"#8e24aa",
+        onClickDefination:{
+      action:"page_change",
+      path:"/landing/mihy-ui-framework/blood/calculate"
+    }
   },
   {
     displayLabel: "Disease update",
