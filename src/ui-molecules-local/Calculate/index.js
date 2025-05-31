@@ -70,6 +70,13 @@ class CalculatePage extends Component {
         bloodVolume: '',
         bmi: '',
         bmiCategory: '',
+        ironSupplements: '',
+        diet: '',
+        ironRecoveryDays: '',
+        donarId: '',
+        donorName: '',
+        mobileNumber: '',
+        donationData: null,
     };
 
     calculateNextDonationDate = () => {
@@ -122,15 +129,42 @@ class CalculatePage extends Component {
         this.setState({ [field]: e.target.value });
     };
 
+    estimateIronRecovery = () => {
+        const { gender, diet, ironSupplements } = this.state;
+        let baseDays = gender === 'Female' ? 60 : 45;
+        if (diet === 'Veg') baseDays += 10;
+        if (ironSupplements === 'Yes') baseDays -= 15;
+        this.setState({ ironRecoveryDays: baseDays });
+    };
+
+    handleSearchDonationHistory = () => {
+        const { donorName, mobileNumber, donarId } = this.state;
+
+        // Simulated data fetch (in real case, you’d use an API call)
+        if (donorName && mobileNumber && donarId) {
+            this.setState({
+                donarId:donarId,
+                donationData: {
+                    count: 6,
+                    avgInterval: 65,
+                    lastDonation: 'March 15, 2025',
+                },
+            });
+        }
+    };
+
     render() {
         const { classes } = this.props;
         const {
             lastDonationDate, nextEligibleDate,
             age, weight, gender, eligible,
             height, bloodVolume, bmi, bmiCategory, heightCm,
-            weightEc, weightBve,genderEc
+            weightEc, weightBve, genderEc,
+            diet, ironSupplements, ironRecoveryDays,
+            donationData, donorName, mobileNumber, donarId
         } = this.state;
-
+        const options = ['Yes', 'No'];
+        const veOoptions = ['Veg', 'Non-Veg'];
         return (
             <div className={classes.root}>
                 <Button
@@ -143,6 +177,38 @@ class CalculatePage extends Component {
                 </Button>
                 <Typography variant="display1" gutterBottom className={classes.title}>Calculate</Typography>
 
+                {/* Donation History Summary with Search */}
+                <ExpansionPanel className={classes.panel}>
+                    <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                        <Typography className={classes.sectionTitle}>Donation History Summary</Typography>
+                    </ExpansionPanelSummary>
+                    <ExpansionPanelDetails className={classes.panelDetails}>
+                        <Grid container spacing={16}>
+                            <Grid item xs={4}>
+                                <TextField label="Donor Name" required value={donorName} onChange={this.handleChange('donorName')} fullWidth />
+                            </Grid>
+                            <Grid item xs={4}>
+                                <TextField label="Mobile Number" required value={mobileNumber} onChange={this.handleChange('mobileNumber')} fullWidth />
+                            </Grid>
+                            <Grid item xs={4}>
+                                <TextField label="Enter Donar Registered Id" required value={donarId} onChange={this.handleChange('donarId')} fullWidth />
+                            </Grid>
+                        </Grid>
+                        <Button onClick={this.handleSearchDonationHistory} color="primary" variant="contained">
+                            Search History
+                        </Button>
+                        {donationData && (
+                            <Card className={classes.resultCard}>
+                                <CardContent>
+                                    <Typography className={classes.resultText}>Donar Registered Id : <strong>{donarId}</strong></Typography>
+                                    <Typography className={classes.resultText}>Total Donations: <strong>{donationData.count}</strong></Typography>
+                                    <Typography className={classes.resultText}>Average Interval: <strong>{donationData.avgInterval} days</strong></Typography>
+                                    <Typography className={classes.resultText}>Last Donation: <strong>{donationData.lastDonation}</strong></Typography>
+                                </CardContent>
+                            </Card>
+                        )}
+                    </ExpansionPanelDetails>
+                </ExpansionPanel>
                 {/* Next Eligible Donation Date */}
                 <ExpansionPanel className={classes.panel}>
                     <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -165,7 +231,7 @@ class CalculatePage extends Component {
                         {nextEligibleDate && (
                             <Card className={classes.resultCard}>
                                 <CardContent>
-                                    <Typography className={classes.resultText}>Next eligible date: {nextEligibleDate}</Typography>
+                                    <Typography className={classes.resultText}>Next eligible date: <strong>{nextEligibleDate}</strong></Typography>
                                 </CardContent>
                             </Card>
                         )}
@@ -186,7 +252,6 @@ class CalculatePage extends Component {
                                 <TextField label="Weight (kg)" required value={weightEc} onChange={this.handleChange('weightEc')} fullWidth />
                             </Grid>
                             <Grid item xs={4}>
-                                {/* <TextField label="Gender (male/female)" required value={gender} onChange={this.handleChange('gender')} fullWidth /> */}
                                 <TextField
                                     name="gender"
                                     select
@@ -208,7 +273,7 @@ class CalculatePage extends Component {
                         {eligible && (
                             <Card className={classes.resultCard}>
                                 <CardContent>
-                                    <Typography className={classes.resultText}>You are: {eligible}</Typography>
+                                    <Typography className={classes.resultText}>You are: <strong>{eligible}</strong></Typography>
                                 </CardContent>
                             </Card>
                         )}
@@ -251,7 +316,7 @@ class CalculatePage extends Component {
                         {bloodVolume && (
                             <Card className={classes.resultCard}>
                                 <CardContent>
-                                    <Typography className={classes.resultText}>Estimated Blood Volume: {bloodVolume}</Typography>
+                                    <Typography className={classes.resultText}>Estimated Blood Volume: <strong>{bloodVolume}</strong></Typography>
                                 </CardContent>
                             </Card>
                         )}
@@ -280,7 +345,74 @@ class CalculatePage extends Component {
                         {bmi && (
                             <Card className={classes.resultCard}>
                                 <CardContent>
-                                    <Typography className={classes.resultText}>Your BMI: {bmi} ({bmiCategory})</Typography>
+                                    <Typography className={classes.resultText}>Your BMI: <strong>{bmi}, ({bmiCategory})</strong></Typography>
+                                </CardContent>
+                            </Card>
+                        )}
+                    </ExpansionPanelDetails>
+                </ExpansionPanel>
+                {/* Iron Recovery Estimator */}
+                <ExpansionPanel className={classes.panel}>
+                    <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                        <Typography className={classes.sectionTitle}>Iron Recovery Estimator</Typography>
+                    </ExpansionPanelSummary>
+                    <ExpansionPanelDetails className={classes.panelDetails}>
+                        <Grid container spacing={16}>
+                            <Grid item xs={4}>
+                                <TextField
+                                    name="gender"
+                                    select
+                                    label="Gender (male/female)"
+                                    fullWidth
+                                    required
+                                    value={gender}
+                                    onChange={this.handleChange('gender')}
+                                >
+                                    {genders.map(gender => (
+                                        <MenuItem key={gender} value={gender}>{gender}</MenuItem>
+                                    ))}
+                                </TextField>
+                            </Grid>
+                            <Grid item xs={4}>
+                                <TextField
+                                    name="diet"
+                                    select
+                                    label="Diet (Veg/Non-Veg)"
+                                    fullWidth
+                                    required
+                                    value={diet}
+                                    onChange={this.handleChange('diet')}
+                                >
+                                    {veOoptions.map(option => (
+                                        <MenuItem key={option} value={option}>{option}</MenuItem>
+                                    ))}
+                                </TextField>
+                            </Grid>
+                            <Grid item xs={4}>
+                                <TextField
+                                    name="ironSupplements"
+                                    select
+                                    label="Iron Supplements (Yes/No)"
+                                    fullWidth
+                                    required
+                                    value={ironSupplements}
+                                    onChange={this.handleChange('ironSupplements')}
+                                >
+                                    {options.map(option => (
+                                        <MenuItem key={option} value={option}>{option}</MenuItem>
+                                    ))}
+                                </TextField>
+                            </Grid>
+                        </Grid>
+                        <Button onClick={this.estimateIronRecovery} color="primary" variant="contained">
+                            Estimate Recovery
+                        </Button>
+                        {ironRecoveryDays && (
+                            <Card className={classes.resultCard}>
+                                <CardContent>
+                                    <Typography className={classes.resultText}>
+                                        Estimated iron recovery time: <strong>{ironRecoveryDays} days</strong>
+                                    </Typography>
                                 </CardContent>
                             </Card>
                         )}
