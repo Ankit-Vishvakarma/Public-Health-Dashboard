@@ -27,7 +27,7 @@ export const appOptions = [
     iconColorTwo:"#e53935",
     onClickDefination:{
       action:"page_change",
-      path:"/landing/mihy-ui-framework/blood/donation-process"
+      path:"/landing/mihy-ui-framework/blood/blood-donation-process"
     }
   },
   {

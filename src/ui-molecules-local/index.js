@@ -3,6 +3,10 @@ import Loadable from "react-loadable";
 import LinearProgress from "mihy-ui-framework//ui-atoms/LinearSpinner";
 
 const Loading = () => <LinearProgress />;
+const BloodDonationProcess = Loadable({
+  loader: () => import("./BloodDonationProcess"),
+  loading: () => <Loading />
+});
 
 const AboutApplication = Loadable({
   loader: () => import("./AboutApplication"),
@@ -31,5 +35,6 @@ export {
   AboutApplication,
   RequestDonarDialogBox,
   RegistrationDonar,
-  SearchDonar
+  SearchDonar,
+  BloodDonationProcess
 }

@@ -14,7 +14,7 @@ import InfoIcon from '@material-ui/icons/Info';
 import BuildIcon from '@material-ui/icons/Build';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import PersonIcon from '@material-ui/icons/Person';
-
+import Icon from '@material-ui/core/Icon';
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -25,7 +25,7 @@ const styles = theme => ({
     boxSizing: 'border-box',
   },
   title: {
-    fontWeight: 600,
+    // fontWeight: 600,
     textAlign: 'center',
     marginBottom: theme.spacing.unit * 3,
   },
@@ -85,12 +85,12 @@ class AboutApplication extends Component {
           className={classes.backButton}
           href="/landing/mihy-ui-framework/blood/dashboard"
         >
-          Back to Dashboard
+         <Icon>arrow_back</Icon> Back to Dashboard
         </Button>
 
         <Grid container style={{ width: '100%' }}>
           <Grid item xs={12}>
-            <Typography variant="h4" className={classes.title}>
+            <Typography  variant="display1" gutterBottom className={classes.title}>
               About the Application
             </Typography>
 
