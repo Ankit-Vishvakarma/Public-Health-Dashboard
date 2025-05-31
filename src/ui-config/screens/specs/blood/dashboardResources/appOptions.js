@@ -35,7 +35,11 @@ export const appOptions = [
     displaySubLabel: "Only one file can be uploaded for one document.",
     iconName: "help_outline",
     iconColorOne:"#26c6da",
-    iconColorTwo:"#00acc1"
+    iconColorTwo:"#00acc1" ,   
+    onClickDefination:{
+      action:"page_change",
+      path:"/landing/mihy-ui-framework/blood/things-to-know"
+    }
   },
   {
     displayLabel: "Calculator",

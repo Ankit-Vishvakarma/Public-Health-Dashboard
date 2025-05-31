@@ -8,6 +8,10 @@ const Calculate = Loadable({
   loader: () => import("./Calculate"),
   loading: () => <Loading />
 });
+const ThingsToKnow = Loadable({
+  loader: () => import("./ThingsToKnow"),
+  loading: () => <Loading />
+});
 
 const BloodDonationProcess = Loadable({
   loader: () => import("./BloodDonationProcess"),
@@ -43,5 +47,6 @@ export {
   RegistrationDonar,
   SearchDonar,
   BloodDonationProcess,
-  Calculate
+  Calculate,
+  ThingsToKnow
 }
