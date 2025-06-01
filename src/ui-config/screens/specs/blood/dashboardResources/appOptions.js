@@ -64,9 +64,13 @@ export const appOptions = [
     }
   },
   {
-    displayLabel: "App history",
+    displayLabel: "Application Activity History",
     displaySubLabel: "Only one file can be uploaded for one document.",
-    iconName: "history"
+    iconName: "history",
+    onClickDefination: {
+      action: "page_change",
+      path: "/landing/mihy-ui-framework/blood/application-history"
+    }
   },
   {
     displayLabel: "About application",

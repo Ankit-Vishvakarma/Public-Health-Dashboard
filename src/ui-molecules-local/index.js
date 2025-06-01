@@ -4,6 +4,11 @@ import LinearProgress from "mihy-ui-framework//ui-atoms/LinearSpinner";
 
 const Loading = () => <LinearProgress />;
 
+const ApplicationHistory = Loadable({
+  loader: () => import("./ApplicationHistory"),
+  loading: () => <Loading />
+});
+
 const Calculate = Loadable({
   loader: () => import("./Calculate"),
   loading: () => <Loading />
@@ -54,5 +59,6 @@ export {
   BloodDonationProcess,
   Calculate,
   ThingsToKnow,
-  DiseaseUpdate
+  DiseaseUpdate,
+  ApplicationHistory
 }
