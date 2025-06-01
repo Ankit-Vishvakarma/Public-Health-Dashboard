@@ -184,13 +184,13 @@ class CalculatePage extends Component {
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails className={classes.panelDetails}>
                         <Grid container spacing={16}>
-                            <Grid item xs={4}>
+                            <Grid item xs={12} sm={6} md={4}>
                                 <TextField label="Donor Name" required value={donorName} onChange={this.handleChange('donorName')} fullWidth />
                             </Grid>
-                            <Grid item xs={4}>
+                            <Grid item xs={12} sm={6} md={4}>
                                 <TextField label="Mobile Number" required value={mobileNumber} onChange={this.handleChange('mobileNumber')} fullWidth />
                             </Grid>
-                            <Grid item xs={4}>
+                            <Grid item xs={12} sm={6} md={4}>
                                 <TextField label="Enter Donar Registered Id" required value={donarId} onChange={this.handleChange('donarId')} fullWidth />
                             </Grid>
                         </Grid>
@@ -245,13 +245,13 @@ class CalculatePage extends Component {
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails className={classes.panelDetails}>
                         <Grid container spacing={16}>
-                            <Grid item xs={4}>
+                            <Grid item xs={12} sm={6} md={4}>
                                 <TextField label="Age" required value={age} onChange={this.handleChange('age')} fullWidth />
                             </Grid>
-                            <Grid item xs={4}>
+                            <Grid item xs={12} sm={6} md={4}>
                                 <TextField label="Weight (kg)" required value={weightEc} onChange={this.handleChange('weightEc')} fullWidth />
                             </Grid>
-                            <Grid item xs={4}>
+                            <Grid item xs={12} sm={6} md={4}>
                                 <TextField
                                     name="gender"
                                     select
@@ -287,13 +287,13 @@ class CalculatePage extends Component {
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails className={classes.panelDetails}>
                         <Grid container spacing={16}>
-                            <Grid item xs={4}>
+                            <Grid item xs={12} sm={6} md={4}>
                                 <TextField label="Height (m)" required value={height} onChange={this.handleChange('height')} fullWidth className={classes.formControl} />
                             </Grid>
-                            <Grid item xs={4}>
+                            <Grid item xs={12} sm={6} md={4}>
                                 <TextField label="Weight (kg)" required value={weightBve} onChange={this.handleChange('weightBve')} fullWidth className={classes.formControl} />
                             </Grid>
-                            <Grid item xs={4}>
+                            <Grid item  xs={12} sm={6} md={4}>
                                 <TextField
                                     name="gender"
                                     select
@@ -330,10 +330,10 @@ class CalculatePage extends Component {
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails className={classes.panelDetails}>
                         <Grid container spacing={16}>
-                            <Grid item xs={6}>
+                            <Grid item xs={12} sm={6} md={6}>
                                 <TextField label="Height (cm)" required value={heightCm} onChange={this.handleChange('heightCm')} fullWidth className={classes.formControl} />
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={12} sm={6} md={6}>
                                 <TextField label="Weight (kg)" required value={weight} onChange={this.handleChange('weight')} fullWidth className={classes.formControl} />
                             </Grid>
                         </Grid>
@@ -358,7 +358,7 @@ class CalculatePage extends Component {
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails className={classes.panelDetails}>
                         <Grid container spacing={16}>
-                            <Grid item xs={4}>
+                            <Grid item xs={12} sm={6} md={4}>
                                 <TextField
                                     name="gender"
                                     select
@@ -373,7 +373,7 @@ class CalculatePage extends Component {
                                     ))}
                                 </TextField>
                             </Grid>
-                            <Grid item xs={4}>
+                            <Grid item xs={12} sm={6} md={4}>
                                 <TextField
                                     name="diet"
                                     select
@@ -388,7 +388,7 @@ class CalculatePage extends Component {
                                     ))}
                                 </TextField>
                             </Grid>
-                            <Grid item xs={4}>
+                            <Grid item xs={12} sm={6} md={4}>
                                 <TextField
                                     name="ironSupplements"
                                     select
